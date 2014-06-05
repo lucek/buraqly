@@ -1,0 +1,12 @@
+- if @vegetables
+  %table
+    - @vegetables.each do |vegetable|
+      %tr
+        %td
+          =vegetable.name
+        %td
+          =vegetable.unit
+        %td
+          =vegetable.price_min
+        %td
+          =vegetable.price_max

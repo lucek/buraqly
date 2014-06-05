@@ -1,0 +1,10 @@
+.dupa
+  dupa
+
+%form.input-append{:action => search_path, :method => "get"}
+  -value = params[:name] if params[:name]
+  %input.input-small{:name => "name", :type => "search", :placeholder => "Search vegetables", :value => value}
+  %button.btn
+    %i.icon-search
+
+= render :partial => "vegetables_list"

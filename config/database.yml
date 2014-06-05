@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: buraqly
+  username: Lucek
+  password: 
+  host: localhost
+  pool: 5
+  timeout: 5000
