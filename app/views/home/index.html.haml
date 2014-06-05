@@ -12,7 +12,7 @@
     %form.input-append{:action => search_path, :method => "get"}
       -value = params[:name] if params[:name]
       %input{:name => "name", :placeholder => "Czego szukasz? Buraqa, Cebulaqa, Ziemniaqa?", :value => value}
-
+        
   -if @index
     =render partial: "help"
   -else
@@ -21,3 +21,26 @@
         =render partial: "vegetables_list"
     -else
       =render partial: "help"
+
+  .quote
+    :javascript   
+      uarticle = new Array("Pamiętaj, że", "Czasem nawet", "Wiedz, że", "Nie warto rozmyślać o tym, że", "Tylko", "Jedynie", "Warto rozmyślać o tym, że", "Zrozum:", "To oczywiste, że", "Musisz wiedzieć jedno:", "Oto cała mądrość:", "Bo miłość - tak jak", "Albowiem", "Zdarza się, że", "Słyszano, że", "Napisano bowiem:");
+
+      noun = #{Vegetable.all.pluck(:name)};
+
+      verb = new Array("potrafi", "wie jak", "nie wie jak", "usiłuje", "jest w stanie", "zdoła", "może", "próbuje", "stara się"); 
+      larticle = new Array("zdobyć", "posiąść", "zyskać", "stracić", "zachować", "utracić", "zmarnować", "odzyskać");
+
+      preposition = new Array("Sekret Wszechświata", "skarb", "rozum", "bogactwo", "odwagę", "miłość", "mądrość", "piękno", "dobro", "wiarę", "nadzieję", "prawdę", "szczęście", "spokój", "rozsądek", "sens", "moc", "siłę", "władzę"); 
+      
+      var rand1 = [Math.floor ( Math.random() * uarticle.length )]; 
+      var rand2 = [Math.floor ( Math.random() * noun.length )]; 
+      var rand3 = [Math.floor ( Math.random() * verb.length )]; 
+      var rand4 = [Math.floor ( Math.random() * larticle.length )]; 
+      var rand5 = [Math.floor ( Math.random() * preposition.length )]; 
+      
+      
+      document.write(uarticle[rand1] + " " + noun[rand2] + " " + verb[rand3] + " " + larticle[rand4] + " " + preposition[rand5] + "."); 
+
+  .signature
+    \~ Paulo Buraqelho

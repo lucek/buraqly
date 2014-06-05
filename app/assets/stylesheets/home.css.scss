@@ -30,7 +30,8 @@
 
 .help {
   position: relative;
-  top: 200px;
+  top: 160px;
+  margin-left: 30px;
 
   .row {
     img {
@@ -58,4 +59,19 @@
 
     width: 600px;
   }
+}
+
+.quote {
+  position: relative;
+  top: 170px;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.signature {
+  position: relative;
+  top: 180px;
+  left: 200px;
+  font-weight: bold;
 }
