@@ -61,23 +61,28 @@
   }
 }
 
-.quote {
-  position: relative;
-  top: 170px;
-  font-family: Helvetica;
-  font-size: 18px;
-  font-style: italic;
-}
+.coelho {
+  cursor: pointer;
 
-.signature {
-  position: relative;
-  top: 180px;
-  left: 200px;
-  font-weight: bold;
+  #quote {
+    position: relative;
+    top: 170px;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  .signature {
+    position: relative;
+    top: 180px;
+    left: 200px;
+    font-weight: bold;
+  }
 }
 
 .paulo {
-  position: relative;
-  top: 150px;
+  position: absolute;
+  bottom: -500px;
+  left: 500px;
   display: none;
 }

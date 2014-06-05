@@ -3,10 +3,12 @@ class HomeController < ApplicationController
 
   def index
     @index = true
+    @search = false
   end
 
   def search
     @index = false
+    @search = true
     name = params[:name]
     if name
       @vegetables = Vegetable.where('name LIKE ?', "%#{name.downcase}%")
