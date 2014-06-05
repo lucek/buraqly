@@ -4,12 +4,14 @@ $(document).ready(function(){
         $(".paulo").css("display", "block")
         $(".paulo").animate({ 
           bottom: "0px",
-        }, 200 ).delay(500).animate({ 
+        }, 200, function() {
+          $.playSound("/zdupy")
+        } ).delay(500).animate({ 
           bottom: "-500px",
-        }, 200 );
-        $.playSound("/zdupy")
+        }, 200, function() {
+          $(this).css("display", "none")
+        } );
       }
-
     } 
   )
 });

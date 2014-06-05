@@ -1,6 +1,10 @@
 #sign-in
   - if current_user
-    = image_tag(current_user.image)
+    .avatar
+      - if current_user.incognito
+        = image_tag("http://www.pcmech.com/wp-content/uploads/2012/02/de1c6_0-incognito-intro.jpg")
+      -else
+        = image_tag(current_user.image)
   - else
     = link_to raw('<i class="fa fa-facebook"></i> Sign in'), "/auth/facebook", id: "sign_in"
 
@@ -66,8 +70,8 @@
       .signature
         \~ Paulo Buraqelho
 
-    .paulo
-      %img{:src => "/assets/paulo.png"}
+      .paulo
+        %img{:src => "/assets/paulo.png"}
 
   -if @history
     .history
