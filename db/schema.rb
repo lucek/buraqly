@@ -11,10 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605125221) do
+ActiveRecord::Schema.define(version: 20140605205417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "search_results", force: true do |t|
+    t.integer  "user_search_id"
+    t.integer  "vegetable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "search_results", ["user_search_id"], name: "index_search_results_on_user_search_id", using: :btree
+  add_index "search_results", ["vegetable_id"], name: "index_search_results_on_vegetable_id", using: :btree
+
+  create_table "user_searches", force: true do |t|
+    t.date     "date"
+    t.string   "search_term"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_searches", ["user_id"], name: "index_user_searches_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "image"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.boolean  "incognito",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "vegetables", force: true do |t|
     t.string  "name",      null: false

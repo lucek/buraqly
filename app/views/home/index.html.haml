@@ -1,7 +1,26 @@
+#sign-in
+  - if current_user
+    = image_tag(current_user.image)
+  - else
+    = link_to raw('<i class="fa fa-facebook"></i> Sign in'), "/auth/facebook", id: "sign_in"
+
+- if current_user
+  #user-settings
+    %ul
+      %li
+        = link_to "Sign out", signout_path, id: "sign_out"
+      %li
+        = link_to "History", history_path
+      %li
+        - if current_user.incognito
+          = link_to raw("Incognito: ON"), incognito_url
+        - else
+          = link_to raw("Incognito: OFF"), incognito_url 
+
 %center
   .search
     .logo
-      -if !@index
+      -if @search
         -if @vegetables.any?
           =link_to image_tag("/assets/logo.png"), root_url
         -else
@@ -15,14 +34,14 @@
         
   -if @index
     =render partial: "help"
-  -else
+  -elsif @search
     -if @vegetables.any?
       .vegetables
         =render partial: "vegetables_list"
     -else
       =render partial: "help"
 
-  -if @search != true
+  -if @search
     .coelho
       #quote
         :javascript
@@ -49,3 +68,7 @@
 
     .paulo
       %img{:src => "/assets/paulo.png"}
+
+  -if @history
+    .history
+      =render partial: "user_history"
