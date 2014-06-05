@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title Buraqly
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    = yield
+
+#sign-in
+  - if current_user
+    .avatar
+      - if current_user.incognito
+        = image_tag("http://www.pcmech.com/wp-content/uploads/2012/02/de1c6_0-incognito-intro.jpg")
+      -else
+        = image_tag(current_user.image)
+  - else
+    = link_to raw('<i class="fa fa-facebook"></i> Sign in'), "/auth/facebook", id: "sign_in"
+
+- if current_user
+  #user-settings
+    %ul
+      %li
+        = link_to "Sign out", signout_path, id: "sign_out"
+      %li
+        = link_to "History", history_path
+      %li
+        - if current_user.incognito
+          = link_to raw("Incognito: ON"), incognito_url
+        - else
+          = link_to raw("Incognito: OFF"), incognito_url 
