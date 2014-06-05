@@ -1,5 +1,14 @@
 - if @vegetables
-  %table
+  %table.table
+    %tr
+      %th
+        Nazwa
+      %th
+        Ilość
+      %th
+        Cena min.
+      %th
+        Cena max.
     - @vegetables.each do |vegetable|
       %tr
         %td

@@ -1,0 +1,61 @@
+.search {
+  position: relative;
+  top: 135px;
+
+  .logo { 
+    img {
+      width: 450px;
+    }
+  }
+
+  form {
+    margin-top: 10px;
+
+    input {
+      height: 19px;
+      width: 500px;
+    }
+
+    button {
+      img {
+        width: 20px;
+      }
+
+      margin-left: -40px;
+      background: none;
+      border: none;
+    }
+  }
+}
+
+.help {
+  position: relative;
+  top: 200px;
+
+  .row {
+    img {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      border: 1px solid black;
+    }
+  }
+}
+
+.vegetables {
+  position: relative;
+  top: 200px;
+
+  table {
+    th {
+      text-align: center;
+      background-color: rgba(179,134,196,.7);
+    }
+
+    td {
+      text-align: center;
+    }
+
+    width: 600px;
+  }
+}

@@ -17,8 +17,8 @@ gem 'pg'                                                 # For accessing Postgre
 gem 'haml', '>= 4.0.0'                                   # For cleaner templates' syntax
 gem 'nokogiri'
 gem 'pry-rails'
-
-
+gem 'turbolinks'
+gem "twitter-bootstrap-rails"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

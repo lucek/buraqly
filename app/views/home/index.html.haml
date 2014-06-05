@@ -1,10 +1,23 @@
-.dupa
-  dupa
+%center
+  .search
+    .logo
+      -if !@index
+        -if @vegetables.any?
+          %img{:src => "/assets/logo.png"}
+        -else
+          %img{:src => "/assets/not-found.png"}
+      -else
+        %img{:src => "/assets/logo.png"}
 
-%form.input-append{:action => search_path, :method => "get"}
-  -value = params[:name] if params[:name]
-  %input.input-small{:name => "name", :type => "search", :placeholder => "Search vegetables", :value => value}
-  %button.btn
-    %i.icon-search
+    %form.input-append{:action => search_path, :method => "get"}
+      -value = params[:name] if params[:name]
+      %input{:name => "name", :placeholder => "Czego szukasz? Buraqa, Cebulaqa, Ziemniaqa?", :value => value}
 
-= render :partial => "vegetables_list"
+  -if @index
+    =render partial: "help"
+  -else
+    -if @vegetables.any?
+      .vegetables
+        =render partial: "vegetables_list"
+    -else
+      =render partial: "help"
