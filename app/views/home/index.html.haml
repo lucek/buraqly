@@ -39,7 +39,7 @@
         -else
           =render partial: "help"
 
-      -if @index
+      -if @index || !@vegetables.any?
         .coelho
           #quote
             :javascript
@@ -71,7 +71,7 @@
         .history
           =render partial: "user_history"
 
-    -if !@search
+    -if !@search || !@vegetables.any?
       #footer
         .copy
           Made with ♥ by Grzester & Lucek © 2014 LuxGrzePol All rights reserved.
