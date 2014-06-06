@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20140605205417) do
   end
 
   create_table "vegetables", force: true do |t|
-    t.string  "name",      null: false
-    t.integer "price_min", null: false
-    t.integer "price_max", null: false
-    t.string  "unit",      null: false
-    t.date    "date",      null: false
+    t.string "name",      null: false
+    t.string "price_min", null: false
+    t.string "price_max", null: false
+    t.string "unit",      null: false
+    t.date   "date",      null: false
   end
 
   add_index "vegetables", ["name"], name: "index_vegetables_on_name", using: :btree
