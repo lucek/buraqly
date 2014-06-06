@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  $(".coelho").mouseenter(function() {
+  $("#quote").mouseenter(function() {
       if($(".paulo").css("bottom") == "-500px") {
         $(".paulo").css("display", "block")
         $(".paulo").animate({ 
-          bottom: "-200px",
+          bottom: "0px",
         }, 200, function() {
           $.playSound("/zdupy")
         } ).delay(500).animate({ 

@@ -8,7 +8,16 @@
   %body
     = yield
 
+%form{id: "paypal", action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_top"}
+  %input{name: "cmd", type: "hidden", value: "_donations"}/
+  %input{name: "business", type: "hidden", value: "ZFABYEXXEC5DU"}/
+  %input{name: "lc", type: "hidden", value: "PL"}/
+  %input{name: "currency_code", type: "hidden", value: "PLN"}/
+  %input{name: "bn", type: "hidden", value: "PP-DonationsBF:btn_donate_LG.gif:NonHosted"}/
+  %input{alt: "PayPal — Płać wygodnie i bezpiecznie", border: "0", name: "submit", src: "https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_donate_LG.gif", type: "image"}/
+
 #sign-in
+  %img{alt: "", border: "0", height: "1", src: "https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif", width: "1"}/
   - if current_user
     .avatar
       - if current_user.incognito

@@ -1,7 +1,4 @@
 .search {
-  position: relative;
-  top: 135px;
-
   .logo { 
     img {
       width: 450px;
@@ -29,8 +26,6 @@
 }
 
 .help {
-  position: relative;
-  top: 160px;
   margin-left: 30px;
 
   .row {
@@ -44,9 +39,6 @@
 }
 
 .vegetables {
-  position: relative;
-  top: 150px;
-
   table {
     th {
       text-align: center;
@@ -80,19 +72,14 @@
 }
 
 .coelho {
-  cursor: pointer;
-
   #quote {
-    position: relative;
-    top: 170px;
+    cursor: pointer;
     font-family: Helvetica;
     font-size: 18px;
     font-style: italic;
   }
 
   .signature {
-    position: relative;
-    top: 180px;
     margin-left: 400px;
     font-weight: bold;
   }
@@ -145,6 +132,14 @@
     color: #FFFFFF;
     text-decoration: none;
   }
+}
+
+#paypal {
+  position: fixed;
+  top: 7px;
+  left: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .term {
@@ -201,15 +196,32 @@
   }
 }
 
-.footer {
-  position: absolute;
-  bottom: 50px;
-  margin-left: 26%;
-  width: 50%;
-  border-top: 1px solid #eee;
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+#container {
+  min-height:100%;
+  position:relative;
+}
+
+.actual-content {
+  position: relative;
+  top: 130px;
+}
+
+#footer {
+  position:absolute;
+  bottom:0px;
+  width:50%;
+  margin-left: 20%;
+  margin-bottom: 10px;
   z-index: -1;
 
   .copy {
-    margin-top: 5px;
+    margin-left: 20%;
   }
 }
