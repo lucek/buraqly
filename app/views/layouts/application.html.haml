@@ -7,38 +7,38 @@
     = csrf_meta_tags
   %body
     = yield
+.header-top
+  %form{id: "paypal", action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_top"}
+    %input{name: "cmd", type: "hidden", value: "_donations"}/
+    %input{name: "business", type: "hidden", value: "ZFABYEXXEC5DU"}/
+    %input{name: "lc", type: "hidden", value: "PL"}/
+    %input{name: "currency_code", type: "hidden", value: "PLN"}/
+    %input{name: "bn", type: "hidden", value: "PP-DonationsBF:btn_donate_LG.gif:NonHosted"}/
+    %input{alt: "PayPal — Płać wygodnie i bezpiecznie", border: "0", name: "submit", src: "https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_donate_LG.gif", type: "image"}/
 
-%form{id: "paypal", action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_top"}
-  %input{name: "cmd", type: "hidden", value: "_donations"}/
-  %input{name: "business", type: "hidden", value: "ZFABYEXXEC5DU"}/
-  %input{name: "lc", type: "hidden", value: "PL"}/
-  %input{name: "currency_code", type: "hidden", value: "PLN"}/
-  %input{name: "bn", type: "hidden", value: "PP-DonationsBF:btn_donate_LG.gif:NonHosted"}/
-  %input{alt: "PayPal — Płać wygodnie i bezpiecznie", border: "0", name: "submit", src: "https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_donate_LG.gif", type: "image"}/
-
-#sign-in
-  %img{alt: "", border: "0", height: "1", src: "https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif", width: "1"}/
-  - if current_user
-    .avatar
-      - if current_user.incognito
-        = image_tag("http://www.pcmech.com/wp-content/uploads/2012/02/de1c6_0-incognito-intro.jpg")
-      -else
-        = image_tag(current_user.image)
-  - else
-    = link_to raw('<i class="fa fa-facebook"></i> Sign in'), "/auth/facebook", id: "sign_in"
-
-- if current_user
-  #user-settings
-    %ul
-      %li
-        = link_to "Sign out", signout_path, id: "sign_out"
-      %li
-        = link_to "History", history_path
-      %li
+  #sign-in
+    %img{alt: "", border: "0", height: "1", src: "https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif", width: "1"}/
+    - if current_user
+      .avatar
         - if current_user.incognito
-          = link_to raw("Incognito: ON"), incognito_url
-        - else
-          = link_to raw("Incognito: OFF"), incognito_url 
+          = image_tag("http://www.pcmech.com/wp-content/uploads/2012/02/de1c6_0-incognito-intro.jpg")
+        -else
+          = image_tag(current_user.image)
+    - else
+      = link_to raw('<i class="fa fa-facebook"></i> Sign in'), "/auth/facebook", id: "sign_in"
+
+  - if current_user
+    #user-settings
+      %ul
+        %li
+          = link_to "Sign out", signout_path, id: "sign_out"
+        %li
+          = link_to "History", history_path
+        %li
+          - if current_user.incognito
+            = link_to raw("Incognito: ON"), incognito_url
+          - else
+            = link_to raw("Incognito: OFF"), incognito_url 
 
 :javascript
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
