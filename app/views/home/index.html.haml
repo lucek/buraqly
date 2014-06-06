@@ -1,13 +1,16 @@
 %center
   .search
     .logo
-      -if @search
-        -if @vegetables.any?
-          =link_to image_tag("logo.png"), root_url
-        -else
-          =link_to image_tag("not-found.png"), root_url
+      -if @error
+        =link_to image_tag("404.png"), root_url
       -else
-        =link_to image_tag("logo.png"), root_url
+        -if @search
+          -if @vegetables.any?
+            =link_to image_tag("logo.png"), root_url
+          -else
+            =link_to image_tag("not-found.png"), root_url
+        -else
+          =link_to image_tag("logo.png"), root_url
 
     %form.input-append{:action => search_path, :method => "get"}
       -value = params[:name] if params[:name]

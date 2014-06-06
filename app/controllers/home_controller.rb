@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def search
+    current_user.name
     @index = false
     @search = true
     @history = false
@@ -54,6 +55,13 @@ class HomeController < ApplicationController
     @vegetables = []
 
     @searches = current_user.user_searches
+
+    render :index
+  end
+
+  def error
+    @error = true
+    @index = true
 
     render :index
   end

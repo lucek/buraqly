@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from ActiveRecord::RecordNotFound,
+              ActionController::RoutingError,
+              ActionController::UnknownController,
+              NoMethodError,
+              ActionController::MethodNotAllowed do |exception|
+
+    redirect_to error_url
+  end
+
   private
   
   def current_user
