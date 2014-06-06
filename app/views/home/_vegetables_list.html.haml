@@ -18,6 +18,12 @@
         %td
           =vegetable.unit
         %td
-          =vegetable.price_min
+          -if vegetable.price_min != "brak"
+            ="%.2f" % vegetable.price_min
+          -else
+            =vegetable.price_min
         %td
-          =vegetable.price_max
+          -if vegetable.price_max != "brak"
+            ="%.2f" % vegetable.price_max
+          -else
+            =vegetable.price_max
