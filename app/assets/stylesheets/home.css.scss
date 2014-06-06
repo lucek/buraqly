@@ -200,3 +200,16 @@
     }
   }
 }
+
+.footer {
+  position: absolute;
+  bottom: 50px;
+  margin-left: 26%;
+  width: 50%;
+  border-top: 1px solid #eee;
+  z-index: -1;
+
+  .copy {
+    margin-top: 5px;
+  }
+}

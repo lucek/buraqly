@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".coelho").mouseover(function() {
+  $(".coelho").mouseenter(function() {
       if($(".paulo").css("bottom") == "-500px") {
         $(".paulo").css("display", "block")
         $(".paulo").animate({ 
