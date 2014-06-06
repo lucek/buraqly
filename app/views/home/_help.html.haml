@@ -1,9 +1,12 @@
 .help
   .row
-    =link_to image_tag("/assets/onion.png"), search_path(name: "cebula")
-    =link_to image_tag("/assets/beet.png"), search_path(name: "burak")
-    =link_to image_tag("/assets/carrot.png"), search_path(name: "marchew")
+    =link_to image_tag("onion.png"), search_path(name: "cebula")
+    -if current_user && current_user.incognito
+      =link_to image_tag("cycki.png"), search_path(name: "melon")
+    -else
+      =link_to image_tag("beet.png"), search_path(name: "burak")
+    =link_to image_tag("carrot.png"), search_path(name: "marchew")
   .row
-    =link_to image_tag("/assets/potato.png"), search_path(name: "ziemniak")
-    =link_to image_tag("/assets/lettuce.png"), search_path(name: "sałata")
-    =link_to image_tag("/assets/tomato.png"), search_path(name: "pomidor")
+    =link_to image_tag("potato.png"), search_path(name: "ziemniak")
+    =link_to image_tag("lettuce.png"), search_path(name: "sałata")
+    =link_to image_tag("tomato.png"), search_path(name: "pomidor")

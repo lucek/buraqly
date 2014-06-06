@@ -3,11 +3,11 @@
     .logo
       -if @search
         -if @vegetables.any?
-          =link_to image_tag("/assets/logo.png"), root_url
+          =link_to image_tag("logo.png"), root_url
         -else
-          =link_to image_tag("/assets/not-found.png"), root_url
+          =link_to image_tag("not-found.png"), root_url
       -else
-        =link_to image_tag("/assets/logo.png"), root_url
+        =link_to image_tag("logo.png"), root_url
 
     %form.input-append{:action => search_path, :method => "get"}
       -value = params[:name] if params[:name]
