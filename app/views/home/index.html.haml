@@ -20,7 +20,11 @@
         $(function() {
           var availableTags = #{Vegetable.all.pluck(:name).uniq}
           $( "input" ).autocomplete({
-            source: availableTags
+            source: availableTags,
+            select: function(event, ui) {
+              $("input").val(ui.item.value);
+              $("form").submit();
+            }
           });
         });
         
