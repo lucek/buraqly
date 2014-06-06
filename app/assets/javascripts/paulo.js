@@ -3,7 +3,7 @@ $(document).ready(function(){
       if($(".paulo").css("bottom") == "-500px") {
         $(".paulo").css("display", "block")
         $(".paulo").animate({ 
-          bottom: "0px",
+          bottom: "-200px",
         }, 200, function() {
           $.playSound("/zdupy")
         } ).delay(500).animate({ 

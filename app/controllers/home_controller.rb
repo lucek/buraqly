@@ -13,13 +13,14 @@ class HomeController < ApplicationController
     @history = false
     name = params[:name]
     if name
-      @vegetables = Vegetable.where('name LIKE ?', "%#{name.downcase}%")
+      @vegetables = Vegetable.where('name LIKE ? AND date = ?', "%#{name.downcase}%", Date.today)
+
 
       if current_user && !current_user.incognito
         ActiveRecord::Base.transaction do
-          user_search = UserSearch.where(date: Date.today, user_id: current_user.id, search_term: name)
+          user_search = UserSearch.where(date: Date.today, user_id: current_user.id, search_term: name).first
 
-          if !user_search.any?
+          if !user_search
             user_search = UserSearch.create(
               date: Date.today,
               search_term: name,
