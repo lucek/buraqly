@@ -8,7 +8,6 @@ class HomeController < ApplicationController
   end
 
   def search
-    current_user.name
     @index = false
     @search = true
     @history = false
