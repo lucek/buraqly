@@ -21,6 +21,7 @@ gem 'turbolinks'
 gem "twitter-bootstrap-rails"
 gem 'omniauth-facebook'
 gem 'font-awesome-rails'
+gem 'configatron', '~> 3.0.1'                            # For handling app configuration
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
